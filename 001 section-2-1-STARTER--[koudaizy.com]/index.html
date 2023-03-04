@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>VueJS Course</title>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <!-- {{firstName}} {{lastName}} -->
+    <!-- 如果想要名字和姓放到一起而不写两个{{}},可以用模板字符串连接,但是不推荐在里面写复杂表达式 -->
+    <!-- {{`${firstName} ${lastName.toUpperCase()}`}} -->
+    {{fullName}}
+    <input type="text" v-model.lazy.trim="firstName">
+    <input type="text" :value="lastName" @input.prevent="inputChange('变变变！',$event)">
+    <p><a :href="url" target="_blank">Google</a></p>
+    <!-- {{raw_html}} -->
+
+    <p v-html="raw_html"></p>
+
+    <p>{{typeof age}}</p>
+    <p><input type="number" v-model.number="age"></p>
+    <button class="increase" @click="increaseAge">增加</button>
+    <button class="decrease" @click="age--">减少</button>
+  </div>
+
+  <!-- <div id="secondApp">
+    {{firstName}} {{lastName}}
+  </div> -->
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
